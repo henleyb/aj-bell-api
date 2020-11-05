@@ -1,0 +1,94 @@
+@import-normalize;
+@import 'colours.css';
+@import 'elements.css';
+@import 'buttons.css';
+
+.App-header {
+  background-color: var(--app-ajPrimary);
+  min-height: 8vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 1.3vmin);
+  line-height: 2rem;
+  color: white;
+}
+
+.coinResults {
+  display: flex;
+}
+
+.coinList,
+.coinDetails {
+  cursor: pointer;
+  margin: 0.2rem;
+  padding: 0.6rem 0.2rem;
+  height: 500px;
+  border: var(--app-ajPrimary) 1px solid;
+  border-radius: 0.35rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-behavior: auto;
+  /* overflow: scroll; */
+}
+
+.coinList {
+  width: 30%;
+  padding: 0;
+}
+
+.coinDetails {
+  width: 70%;
+}
+
+.coinDetails__Header {
+  margin: 0 auto;
+}
+
+.coinDetails__coinIcon {
+  width: 2rem;
+  height: 2rem;
+  margin: 0 0.5rem;
+  top: 8px;
+  position: relative;
+}
+
+.coinDetails__coinName {
+  font-size: larger;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 0.5rem;
+}
+
+.coinDetails__listBox {
+  padding: 0;
+}
+
+.coinDetails__listBox li {
+  background-position: left center;
+  background-repeat: none;
+  background-size: 18px;
+  background-repeat: no-repeat;
+  list-style-type: none;
+  line-height: 30px;
+  padding: 0.5rem 1.3rem;
+}
+
+.coinList__listBox {
+  padding: 0;
+}
+
+.coinList__priceSort {
+  text-align: center;
+}
+
+.coinList__listItem {
+  background-position: left center;
+  background-repeat: none;
+  background-size: 18px;
+  background-repeat: no-repeat;
+  list-style-type: none;
+  line-height: 30px;
+  padding: 0.5rem 1.3rem;
+}

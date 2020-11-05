@@ -1,0 +1,17 @@
+:root {
+  --li-rowEven: #ffdbc0;
+  --li-rowOdd: #ffcfaa;
+
+  --app-ajPrimary: #d50032;
+  --app-ajSecondary: #b8002b;
+  --app-dark: #130e08;
+  --app-main: #24150e;
+  --app-second: #3b261b;
+  --app-text: #eee;
+
+  --app-buttTop: #d50032;
+  --app-buttBot: #b1012a;
+
+  --app-buttColour: hsl(390, 40%, 35%);
+  --app-buttHoverColour: hsl(390, 50%, 35%);
+}

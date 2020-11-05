@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import CoinList from './components/CoinList';
-import CoinDetails from './components/CoinDetails';
-import './App.css';
+import CoinList from './CoinList';
+import CoinDetails from './CoinDetails';
+import Header from './Header';
+import './css/App.css';
 
 function App() {
   const [coinData, setCoinData] = useState(null);
@@ -9,7 +10,7 @@ function App() {
   const [refreshCoins, setRefreshCoins] = useState(true);
   const [ascDescOrder, setAscDescOrder] = useState('desc');
 
-  const url = 'https://api.coinranking.com/v1/public/coins?base=GBP&amp;timePeriod=7d';
+  const url = 'https://api.coinranking.com/v1/public/coins?base=GBP&amp;timePeriod=7d&sort=price';
   const refreshTime = 60000;
 
   // Grab the coin data from CoinRanking.com
@@ -37,7 +38,7 @@ function App() {
       })
       .catch((error) => console.log('Error:', error));
     return () => {};
-  }, [refreshCoins]);
+  }, [refreshCoins, ascDescOrder]);
 
   // Handlers
   function handleCoinSelect(id) {
@@ -52,11 +53,7 @@ function App() {
 
   return (
     <div className='App'>
-      <header className='App-header'>
-        <h1>AJ Bell - BTC API</h1>
-      </header>
-      <h2>Bitcoin and Altcoin List</h2>
-
+      <Header />
       <section className='coinResults'>
         {coinData ? (
           <CoinList coinData={coinData} handleCoinSelect={handleCoinSelect} handleAscDesc={handleAscDesc} />

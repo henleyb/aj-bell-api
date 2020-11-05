@@ -1,0 +1,33 @@
+ol {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+li:nth-child(even) {
+  background-color: var(--li-rowEven);
+  cursor: pointer;
+}
+li:nth-child(odd) {
+  background-color: var(--li-rowOdd);
+  cursor: pointer;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  border: 1px solid var(--app-ajSecondary);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--app-ajPrimary);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--app-ajSecondary);
+}

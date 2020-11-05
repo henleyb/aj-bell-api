@@ -1,0 +1,56 @@
+.btn {
+  -webkit-box-sizing: inherit;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  font: 14px/100% 'Open Sans', Arial, Helvetica, sans-serif;
+  padding: 0.6rem 0;
+  margin: 0 0.1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  background-size: 200% 200%;
+  transition: all 0.15s ease-in-out;
+  background-position: center top;
+  text-decoration: none;
+  width:40%;
+  /* color: #fafafa; */
+}
+
+.btn:hover {
+  text-decoration: none;
+  background-position: center bottom;
+}
+
+button,
+.btn:hover::after {
+  opacity: 1;
+}
+.btn--primary {
+  background-image: linear-gradient(to top, var(--app-buttBot) 0%, var(--app-buttBot) 50%, var(--app-buttTop) 100%);
+  text-shadow: -1px -1px 0 #666, 1px -1px 0 #666, -1px 1px 0 #666, 1px 1px 0 #666;
+  border: solid 1px #666;
+  color: white;
+  background-color: var(--app-buttColour);
+}
+
+.btn--primary::after {
+  opacity: 0;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: inset 0 5px 8px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: inset 0 5px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 5px 8px rgba(0, 0, 0, 0.5);
+  transition: opacity 0.15s ease-in-out;
+}
+
+.btn--primary:hover {
+  background-color: var(--app-buttHoverColour);
+}
