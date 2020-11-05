@@ -2,7 +2,6 @@ import React from 'react';
 
 export default function CoinDetails({ coinData, selectedCoinID }) {
   const coin = coinData.coins.filter((coin) => coin.id === selectedCoinID);
-  console.log('Selected Coin Data', coin);
   return (
     <div className='coinDetails'>
       {coin.length > 0 ? (

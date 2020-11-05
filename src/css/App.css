@@ -3,6 +3,20 @@
 @import 'elements.css';
 @import 'buttons.css';
 
+*,
+*::before,
+*::after {
+  font-family: Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  box-sizing: border-box;
+  color: var(--app-text);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--app-main);
+}
+
 .App-header {
   background-color: var(--app-ajPrimary);
   min-height: 8vh;
@@ -15,31 +29,48 @@
   color: white;
 }
 
+/* Large */
 .coinResults {
   display: flex;
+  flex-flow: row wrap;
+  margin:5px;
+  justify-content: space-around;
+}
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+  .coinResults {
+    justify-content: space-around;
+  }
+}
+
+/* Small screens */
+@media all and (max-width: 500px) {
+  .coinResults {
+    flex-direction: column;
+  }
 }
 
 .coinList,
 .coinDetails {
   cursor: pointer;
-  margin: 0.2rem;
-  padding: 0.6rem 0.2rem;
-  height: 500px;
+  max-height: 50vh;
   border: var(--app-ajPrimary) 1px solid;
   border-radius: 0.35rem;
   overflow-y: scroll;
   overflow-x: hidden;
   scroll-behavior: auto;
+  margin: 5px 0;
   /* overflow: scroll; */
 }
 
 .coinList {
-  width: 30%;
   padding: 0;
+  flex-basis: 26%;
 }
 
 .coinDetails {
-  width: 70%;
+  flex-basis: 70%;
 }
 
 .coinDetails__Header {
@@ -81,6 +112,7 @@
 
 .coinList__priceSort {
   text-align: center;
+  max-width: 220px;
 }
 
 .coinList__listItem {
@@ -92,3 +124,4 @@
   line-height: 30px;
   padding: 0.5rem 1.3rem;
 }
+

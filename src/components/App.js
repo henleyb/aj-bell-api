@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import CoinList from './CoinList';
 import CoinDetails from './CoinDetails';
+import CoinPriceSort from './CoinPriceSort';
 import Header from './Header';
-import './css/App.css';
+import '../css/App.css';
 
 function App() {
   const [coinData, setCoinData] = useState(null);
@@ -11,7 +12,7 @@ function App() {
   const [ascDescOrder, setAscDescOrder] = useState('desc');
 
   const url = 'https://api.coinranking.com/v1/public/coins?base=GBP&amp;timePeriod=7d&sort=price';
-  const refreshTime = 60000;
+  const refreshTime = 3000;
 
   // Grab the coin data from CoinRanking.com
   useEffect(() => {
@@ -25,15 +26,12 @@ function App() {
         return res.json();
       })
       .then((json) => {
-        console.log('JSON!', json);
         setCoinData(json.data);
       })
       .finally(() => {
         // After calling API we set a timeout to fire it again in the future
         setTimeout(() => {
           setRefreshCoins(!refreshCoins);
-          console.log('Coins Refreshed');
-          console.log('APP!', coinData);
         }, refreshTime);
       })
       .catch((error) => console.log('Error:', error));
@@ -42,24 +40,20 @@ function App() {
 
   // Handlers
   function handleCoinSelect(id) {
-    console.log('coin clicked!', id);
     setSelectedCoinID(id);
   }
 
   function handleAscDesc(direction) {
-    console.log('ASCDESC!', direction);
     setAscDescOrder(direction);
   }
 
   return (
     <div className='App'>
       <Header />
+      <CoinPriceSort handleAscDesc={handleAscDesc} />
+
       <section className='coinResults'>
-        {coinData ? (
-          <CoinList coinData={coinData} handleCoinSelect={handleCoinSelect} handleAscDesc={handleAscDesc} />
-        ) : (
-          <p>"No Data"</p>
-        )}
+        {coinData ? <CoinList coinData={coinData} handleCoinSelect={handleCoinSelect} /> : <p>"No Data"</p>}
         {coinData ? <CoinDetails coinData={coinData} selectedCoinID={selectedCoinID} /> : <p>"No Data"</p>}
       </section>
     </div>
