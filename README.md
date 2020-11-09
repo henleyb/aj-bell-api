@@ -10,3 +10,5 @@ https://main.d1rckl74j5rh90.amplifyapp.com/
 - Clicking a coin will show additional detail
 - Sorted by price
 - Ability to manually sort by asc/desc price
+
+#### Built with React
